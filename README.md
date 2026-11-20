@@ -1,6 +1,6 @@
 # Orca Mascots
 
-Design a marine avatar in the Orca Desktop sidebar. Choose from 20 illustrated animals, customise the background, and save a square PNG or self-contained SVG. Orca Mascots is an unofficial community plugin, unaffiliated with the Orca authors.
+Design a marine avatar in the Orca Desktop sidebar. Choose from 20 illustrated animals, customise the background, and save a square PNG. Orca Mascots is an unofficial community plugin, unaffiliated with the Orca authors.
 
 ![Orca Mascots sidebar in Orca Desktop](docs/gallery.png)
 
@@ -18,14 +18,14 @@ Orca shows the repository, publisher, and requested access before installing. Ex
 
 1. Select an animal in the gallery. Keyboard users can Tab through the buttons and press Enter or Space to select.
 2. Choose a solid, gradient or transparent swatch. For a custom solid, use the colour picker or enter a three- or six-digit hex value. Sky blue (`#B3DBF4`) matches the default background of the built-in mascots.
-3. Switch between rounded and circular previews. The checkerboard shows transparency. Both exports keep the entire square, including the corners.
-4. Choose **512 px** or **1024 px**, then **Save PNG** or **Save SVG**. Choose a destination in Orca’s save dialog. In the SVG the background remains editable, and the raster foreground is embedded so the file travels on its own.
+3. Switch between rounded and circular previews. The checkerboard shows transparency. The export keeps the entire square, including the corners.
+4. Choose **512 px** or **1024 px**, then **Save PNG** and choose a destination in Orca’s save dialog.
 
 The panel remembers your animal, background, last custom colour, preview shape and export size in its local plugin storage. All artwork is bundled and the panel runs offline.
 
 ### Use as your bot’s picture
 
-Save the 512 px PNG, open the bot’s settings and upload it in the picture picker. Orca’s plugin API cannot apply bot avatars or register native mascot IDs. Direct application would require an upstream host method to select a bot and submit an approved picture upload. The SVG is for other uses. Saving and bundled asset loading require Orca Desktop’s isolated frame.
+Save the 512 px PNG, open the bot’s settings and upload it in the picture picker. Orca’s plugin API cannot apply bot avatars or register native mascot IDs. Direct application would require an upstream host method to select a bot and submit an approved picture upload. Saving and bundled asset loading require Orca Desktop’s isolated frame.
 
 ## Development
 
@@ -43,7 +43,7 @@ orca plugin dev watch . --check --shot ./.orca/shots --json
 
 Run release inspection in a clean checkout. Orca includes local files in its size calculation, so ignored image-generation scratch files in a working checkout can exceed the 50 MiB inspection limit. The GitHub release includes the tracked masters and build script alongside the runtime assets.
 
-Review the dev-load access request as for installation. In a desktop workspace, use `orca plugin shot local.mascots --panel gallery --width 340 --out docs/gallery.png` for a fresh screenshot. Inspect the frame logs with `orca plugin logs local.mascots --json`. Stop the watch with Ctrl+C and unload a remaining dev registration with `orca plugin dev unload . --json`. The node tests exercise the shared catalog, preferences and SVG logic. Desktop QA should also exercise both save dialogs and the bot’s PNG upload.
+Review the dev-load access request as for installation. In a desktop workspace, use `orca plugin shot local.mascots --panel gallery --width 340 --out docs/gallery.png` for a fresh screenshot. Inspect the frame logs with `orca plugin logs local.mascots --json`. Stop the watch with Ctrl+C and unload a remaining dev registration with `orca plugin dev unload . --json`. The node tests exercise the shared catalog, preferences and SVG logic. Desktop QA should also exercise the save dialog and the bot’s PNG upload.
 
 ## Licences
 

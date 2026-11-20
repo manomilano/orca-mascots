@@ -21,7 +21,7 @@ async function start() {
   let saving = false;
 
   function enableExport() {
-    $('png').disabled = $('svg').disabled = !canSave || !output || saving;
+    $('png').disabled = !canSave || !output || saving;
   }
 
   function choose(change) {
@@ -116,26 +116,24 @@ async function start() {
     }
   }
 
-  for (const format of ['png', 'svg']) {
-    $(format).onclick = async () => {
-      if (!output || saving) return;
-      saving = true;
+  $('png').onclick = async () => {
+    if (!output || saving) return;
+    saving = true;
+    enableExport();
+    try {
+      const result = await window.orca.files.saveAs({
+        suggestedName: 'mascot-' + state.mascot + '-' + state.size + '.png',
+        mimeType: 'image/png',
+        data: output.png
+      });
+      status.textContent = result.status === 'saved' ? 'PNG saved.' : '';
+    } catch (error) {
+      status.textContent = 'Could not save. ' + error.message;
+    } finally {
+      saving = false;
       enableExport();
-      try {
-        const result = await window.orca.files.saveAs({
-          suggestedName: 'mascot-' + state.mascot + '-' + state.size + '.' + format,
-          mimeType: format === 'png' ? 'image/png' : 'image/svg+xml',
-          data: output[format]
-        });
-        status.textContent = result.status === 'saved' ? format.toUpperCase() + ' saved.' : '';
-      } catch (error) {
-        status.textContent = 'Could not save. ' + error.message;
-      } finally {
-        saving = false;
-        enableExport();
-      }
-    };
-  }
+    }
+  };
   await show();
 }
 

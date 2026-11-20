@@ -22,7 +22,7 @@ export async function renderAvatar(settings, mascot, dataUri) {
     const blob = await new Promise((resolve, reject) => canvas.toBlob(
       value => value ? resolve(value) : reject(new Error('PNG encoding failed')), 'image/png'));
     if (settings.size === 512 && blob.size >= 2 * 1024 * 1024) throw new Error('PNG exceeds 2 MiB');
-    return { svg, png: await blob.arrayBuffer(), preview: url };
+    return { png: await blob.arrayBuffer(), preview: url };
   } catch (error) {
     URL.revokeObjectURL(url);
     throw error;
