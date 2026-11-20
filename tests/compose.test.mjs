@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { composeSvg, defaults, gradients, normalizeHex, parseCatalog, preferences } from '../panel/compose.mjs';
 
 const ids = 'A1 B1 D1 E1 F1 G1 H1 H2 I1 J1 K2 L2 M1 N1 O1 P3 Q1 R3 S2 T1'.split(' ');
-const names = 'Orca|Dolphin|Beluga|Sea Otter|Manta Ray|Octopus|Blue Whale|Seal|Sea Turtle|Crab|Pufferfish|Seahorse|Jellyfish|Shark|Clownfish|Walrus|Hammerhead|Narwhal|Penguin|Sea Bunny'.split('|');
+const names = 'Orca|Dolphin|Beluga|Sea Otter|Manta Ray|Octopus|Humpback|Seal|Sea Turtle|Crab|Pufferfish|Seahorse|Jellyfish|Shark|Clownfish|Walrus|Hammerhead|Narwhal|Penguin|Sea Bunny'.split('|');
 const root = new URL('../', import.meta.url);
 const rows = parseCatalog(JSON.parse(readFileSync(new URL('panel/catalog.json', root), 'utf8')));
 const image = 'data:image/webp;base64,' + readFileSync(new URL(rows[0].asset, root)).toString('base64');

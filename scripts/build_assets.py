@@ -8,7 +8,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 NAMES = {
     "A1": "Orca", "B1": "Dolphin", "D1": "Beluga", "E1": "Sea Otter",
-    "F1": "Manta Ray", "G1": "Octopus", "H1": "Blue Whale", "H2": "Seal",
+    "F1": "Manta Ray", "G1": "Octopus", "H1": "Humpback", "H2": "Seal",
     "I1": "Sea Turtle", "J1": "Crab", "K2": "Pufferfish", "L2": "Seahorse",
     "M1": "Jellyfish", "N1": "Shark", "O1": "Clownfish", "P3": "Walrus",
     "Q1": "Hammerhead", "R3": "Narwhal", "S2": "Penguin", "T1": "Sea Bunny",
