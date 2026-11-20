@@ -1,7 +1,8 @@
 """Build the cover and screenshots shown on the plugin's page in Orca.
 
-Run after build_assets.py. docs/listing/panel.png is a capture of the panel
-taken with `orca plugin shot <plugin> --panel gallery --width 420`.
+Run after build_assets.py. docs/listing/panel-a.png, -b and -c are captures of
+the panel in three states, each taken with
+`orca plugin shot <plugin> --panel gallery --width 420`.
 """
 import json
 from pathlib import Path
@@ -69,6 +70,23 @@ def place(target, tile, position):
     target.alpha_composite(tile, position)
 
 
+def panel_capture(name):
+    """A panel capture, cut to its content and given rounded corners."""
+    with Image.open(OUT / name) as capture:
+        capture = capture.convert("RGBA")
+    # The capture is as tall as the window; drop the empty space under the content.
+    empty = capture.getpixel((capture.width - 2, capture.height - 2))
+    content = Image.eval(
+        Image.merge("RGB", [band.point(lambda v, e=e: 255 if abs(v - e) > 6 else 0)
+                            for band, e in zip(capture.split()[:3], empty)]).convert("L"),
+        lambda v: v).getbbox()
+    capture = capture.crop((0, 0, capture.width, min(capture.height, content[3] + 24)))
+    frame = Image.new("L", capture.size, 0)
+    ImageDraw.Draw(frame).rounded_rectangle((0, 0, capture.width - 1, capture.height - 1), radius=18, fill=255)
+    capture.putalpha(frame)
+    return capture
+
+
 def save(image, name, limit):
     path = OUT / name
     image.convert("RGB").save(path, "WEBP", quality=90, method=6)
@@ -93,23 +111,29 @@ def build():
                   (left + column * (size + gap), top + line * (size + gap - 30)))
     save(cover, "cover.webp", 1024 * 1024)
 
-    # Screenshot 1: the real panel beside what it saves.
+    # Screenshot 1: the sidebar panel itself, in three states.
+    sidebar = canvas()
+    panels = [panel_capture(f"panel-{letter}.png") for letter in "abc"]
+    gap = (SIZE[0] - sum(panel.width for panel in panels)) // 4
+    left = gap
+    for panel in panels:
+        place(sidebar, panel, (left, (SIZE[1] - panel.height) // 2))
+        left += panel.width + gap
+    save(sidebar, "sidebar.webp", 1536 * 1024)
+
+    # Screenshot 2: the panel beside what it saves.
     shot = canvas()
-    with Image.open(OUT / "panel.png") as panel:
-        panel = panel.convert("RGBA")
-        frame = Image.new("L", panel.size, 0)
-        ImageDraw.Draw(frame).rounded_rectangle((0, 0, panel.width - 1, panel.height - 1), radius=18, fill=255)
-        panel.putalpha(frame)
-        scale = 900 / panel.height
-        panel = panel.resize((round(panel.width * scale), 900), Image.Resampling.LANCZOS)
-        place(shot, panel, (110, 50))
+    panel = panels[0]
+    scale = 900 / panel.height
+    panel = panel.resize((round(panel.width * scale), 900), Image.Resampling.LANCZOS)
+    place(shot, panel, (110 + (328 - panel.width) // 2, 50))
     place(shot, avatar(by_id["D1"], 420, 0, 0.2), (640, 110))
     place(shot, avatar(by_id["H1"], 420, 5, 0.5), (1090, 110))
     for column, (key, index) in enumerate([("S2", 6), ("G1", 2), ("R3", 7), ("O1", 1)]):
         place(shot, avatar(by_id[key], 195, index, 0.2 if column % 2 else 0.5), (640 + column * 225, 640))
     save(shot, "panel.webp", 1536 * 1024)
 
-    # Screenshot 2: every mascot as a square bot picture.
+    # Screenshot 3: mascots as square bot pictures.
     grid = canvas()
     size, gap = 250, 40
     left = (SIZE[0] - (5 * size + 4 * gap)) // 2
@@ -119,7 +143,7 @@ def build():
         place(grid, avatar(by_id[key], size, index + 3, 0.2),
               (left + (index % 5) * (size + gap), top + (index // 5) * (size + gap)))
     save(grid, "mascots.webp", 1536 * 1024)
-    print("Built cover and two screenshots.")
+    print("Built cover and three screenshots.")
 
 
 if __name__ == "__main__":

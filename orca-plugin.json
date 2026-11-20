@@ -19,9 +19,14 @@
   },
   "screenshots": [
     {
+      "path": "docs/listing/sidebar.webp",
+      "alt": "The Orca Mascots sidebar panel in three states: a square beluga on sky blue, a round humpback on deep blue and a square octopus on a warm gradient.",
+      "caption": "The sidebar panel: gallery, backgrounds, shape and Save PNG."
+    },
+    {
       "path": "docs/listing/panel.webp",
-      "alt": "The Orca Mascots sidebar panel beside avatars it saved: a square beluga, a round humpback and four smaller ones.",
-      "caption": "Pick a mascot, a background and a shape, then save a PNG."
+      "alt": "The panel beside avatars it saved: a square beluga, a round humpback and four smaller ones.",
+      "caption": "What you see in the preview is what gets saved."
     },
     {
       "path": "docs/listing/mascots.webp",
