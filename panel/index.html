@@ -13,9 +13,9 @@
     <section class="studio" aria-label="Avatar preview">
       <div class="preview-wrap"><div id="mask" class="checker"><img id="preview" alt=""></div></div>
       <div class="caption"><strong id="current-name"></strong>
-        <div class="segment" role="group" aria-label="Preview shape">
-          <button data-shape="rounded" title="Rounded preview" aria-label="Rounded preview">▢</button>
-          <button data-shape="circle" title="Circle preview" aria-label="Circle preview">○</button>
+        <div class="segment" role="group" aria-label="Picture shape">
+          <button data-shape="rounded" title="Square picture" aria-label="Square picture">▢</button>
+          <button data-shape="circle" title="Circle picture" aria-label="Circle picture">○</button>
         </div>
       </div>
     </section>
@@ -32,7 +32,7 @@
     <section>
       <h2>Export <select id="size" aria-label="Export size"><option value="512">512 px</option><option value="1024">1024 px</option></select></h2>
       <div class="actions"><button id="png" disabled>Save PNG</button></div>
-      <p class="hint">The PNG is the full square. The crop is a preview only.</p>
+      <p class="hint" id="shape-hint"></p>
     </section>
     <p id="status" role="status"></p>
     <details><summary>Use as your bot’s picture</summary>

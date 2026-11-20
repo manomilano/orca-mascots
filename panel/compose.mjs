@@ -60,7 +60,7 @@ export function escapeXml(value) {
   return value.replace(/[&<>"']/g, c => entities[c]);
 }
 
-export function composeSvg({ background, custom, size }, name, imageUri, fit) {
+export function composeSvg({ background, custom, size, shape }, name, imageUri, fit) {
   if (![512, 1024].includes(size)) throw new Error('Invalid export size');
   if (!/^data:image\/(png|webp);base64,[a-zA-Z0-9+/]+=*$/.test(imageUri)) {
     throw new Error('Expected an embedded mascot image');
@@ -85,6 +85,9 @@ export function composeSvg({ background, custom, size }, name, imageUri, fit) {
   const place = 'x="' + Math.round((fit?.x ?? 0) * (1024 - side)) + '" y="' +
     Math.round((fit?.y ?? 0) * (1024 - side)) + '" width="' + side + '" height="' + side + '"';
   return '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size +
-    '" viewBox="0 0 1024 1024"><title>' + escapeXml(name) + '</title>' + defs + rect +
-    '<image ' + place + ' href="' + imageUri + '"/></svg>';
+    '" viewBox="0 0 1024 1024"><title>' + escapeXml(name) + '</title>' + defs +
+    // A circle is cut into the picture itself, so the saved file matches the preview.
+    (shape === 'circle' ? '<clipPath id="crop"><circle cx="512" cy="512" r="512"/></clipPath>' +
+      '<g clip-path="url(#crop)">' : '<g>') +
+    rect + '<image ' + place + ' href="' + imageUri + '"/></g></svg>';
 }

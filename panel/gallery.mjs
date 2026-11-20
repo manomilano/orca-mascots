@@ -83,6 +83,9 @@ async function start() {
     $('current-name').textContent = row.name;
     $('current-id').textContent = row.id;
     $('mask').classList.toggle('circle', state.shape === 'circle');
+    $('shape-hint').textContent = state.shape === 'circle'
+      ? 'Saves a round picture with transparent corners.'
+      : 'Saves the full square. Orca rounds the corners itself.';
     $('background-name').textContent = labels[state.background];
     $('picker').value = state.custom;
     if (document.activeElement !== $('hex')) {

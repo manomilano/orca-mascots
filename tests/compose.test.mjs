@@ -70,3 +70,9 @@ test('fit shrinks the mascot toward its anchor and bad fits are refused', () => 
     assert.throws(() => composeSvg(settings, 'Orca', image, fit === null ? { scale: 0 } : fit));
   }
 });
+
+test('circle shape clips the saved picture and square leaves it whole', () => {
+  const circle = composeSvg({ ...defaults, shape: 'circle' }, 'Orca', image);
+  assert.match(circle, /<clipPath id="crop"><circle cx="512" cy="512" r="512"\/><\/clipPath><g clip-path="url\(#crop\)"><rect/);
+  assert.doesNotMatch(composeSvg({ ...defaults, shape: 'rounded' }, 'Orca', image), /clipPath/);
+});

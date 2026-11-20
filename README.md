@@ -18,7 +18,7 @@ Orca shows the repository, publisher, and requested access before installing. Ex
 
 1. Select an animal in the gallery. Keyboard users can Tab through the buttons and press Enter or Space to select.
 2. Choose a solid, gradient or transparent swatch. For a custom solid, use the colour picker or enter a three- or six-digit hex value. Sky blue (`#B3DBF4`) matches the default background of the built-in mascots.
-3. Switch between rounded and circular previews. The checkerboard shows transparency. The export keeps the entire square, including the corners.
+3. Choose the picture shape. Square saves the entire image (Orca rounds the corners itself when it shows a bot). Circle saves exactly the round picture in the preview, with transparent corners. The checkerboard shows transparency.
 4. Choose **512 px** or **1024 px**, then **Save PNG** and choose a destination in Orca’s save dialog.
 
 The panel remembers your animal, background, last custom colour, preview shape and export size in its local plugin storage. All artwork is bundled and the panel runs offline.
