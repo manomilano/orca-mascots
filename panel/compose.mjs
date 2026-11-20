@@ -20,12 +20,20 @@ export function normalizeHex(text) {
   return '#' + (digits.length === 3 ? [...digits].map(c => c + c).join('') : digits).toUpperCase();
 }
 
+// A fit shrinks the art toward the edge its body runs off, so a circular crop keeps the face.
+function validFit(fit) {
+  if (fit === undefined) return true;
+  return fit !== null && typeof fit === 'object' && typeof fit.scale === 'number' &&
+    fit.scale >= 0.5 && fit.scale <= 1 &&
+    [fit.x, fit.y].every(anchor => anchor === 0 || anchor === 0.5 || anchor === 1);
+}
+
 export function parseCatalog(rows) {
   if (!Array.isArray(rows) || !rows.length) throw new Error('Empty mascot catalog');
   const ids = new Set();
-  for (const { id, name, asset } of rows) {
+  for (const { id, name, asset, fit } of rows) {
     if (!/^[A-Z][1-9]$/.test(id) || ids.has(id) || typeof name !== 'string' ||
-        !name.trim() || asset !== 'assets/mascots/' + id + '.webp') {
+        !name.trim() || asset !== 'assets/mascots/' + id + '.webp' || !validFit(fit)) {
       throw new Error('Invalid mascot catalog entry');
     }
     ids.add(id);
@@ -52,7 +60,7 @@ export function escapeXml(value) {
   return value.replace(/[&<>"']/g, c => entities[c]);
 }
 
-export function composeSvg({ background, custom, size }, name, imageUri) {
+export function composeSvg({ background, custom, size }, name, imageUri, fit) {
   if (![512, 1024].includes(size)) throw new Error('Invalid export size');
   if (!/^data:image\/(png|webp);base64,[a-zA-Z0-9+/]+=*$/.test(imageUri)) {
     throw new Error('Expected an embedded mascot image');
@@ -72,7 +80,11 @@ export function composeSvg({ background, custom, size }, name, imageUri) {
     throw new Error('Invalid background');
   }
   const rect = fill ? '<rect width="1024" height="1024" fill="' + fill + '"/>' : '';
+  if (!validFit(fit)) throw new Error('Invalid mascot fit');
+  const side = Math.round(1024 * (fit?.scale ?? 1));
+  const place = 'x="' + Math.round((fit?.x ?? 0) * (1024 - side)) + '" y="' +
+    Math.round((fit?.y ?? 0) * (1024 - side)) + '" width="' + side + '" height="' + side + '"';
   return '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size +
     '" viewBox="0 0 1024 1024"><title>' + escapeXml(name) + '</title>' + defs + rect +
-    '<image width="1024" height="1024" href="' + imageUri + '"/></svg>';
+    '<image ' + place + ' href="' + imageUri + '"/></svg>';
 }

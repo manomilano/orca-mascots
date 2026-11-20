@@ -10,7 +10,7 @@ export function readDataUrl(blob) {
 }
 
 export async function renderAvatar(settings, mascot, dataUri) {
-  const svg = composeSvg(settings, mascot.name, dataUri);
+  const svg = composeSvg(settings, mascot.name, dataUri, mascot.fit);
   const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
   try {
     const image = new Image();

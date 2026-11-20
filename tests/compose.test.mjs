@@ -56,3 +56,17 @@ test('preferences recover from invalid or partial older records', () => {
   const valid = { ...defaults, size: 1024, shape: 'circle', background: 'transparent' };
   assert.deepEqual(preferences(JSON.stringify(valid), rows), valid);
 });
+
+test('fit shrinks the mascot toward its anchor and bad fits are refused', () => {
+  const settings = { ...defaults, background: 'transparent' };
+  assert.match(composeSvg(settings, 'Orca', image), /<image x="0" y="0" width="1024" height="1024"/);
+  const fitted = composeSvg(settings, 'Orca', image, { scale: 0.9, x: 0, y: 1 });
+  assert.match(fitted, /<image x="0" y="102" width="922" height="922"/);
+  const centred = composeSvg(settings, 'Orca', image, { scale: 0.9, x: 0.5, y: 1 });
+  assert.match(centred, /<image x="51" y="102" width="922" height="922"/);
+  for (const row of rows) assert.ok(row.fit.scale > 0.8 && row.fit.scale <= 1);
+  for (const fit of [null, { scale: 2, x: 0, y: 0 }, { scale: 0.9, x: 0.3, y: 0 }, { scale: '1', x: 0, y: 0 }]) {
+    assert.throws(() => parseCatalog([{ ...rows[0], fit }]));
+    assert.throws(() => composeSvg(settings, 'Orca', image, fit === null ? { scale: 0 } : fit));
+  }
+});

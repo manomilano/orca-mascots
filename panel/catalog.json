@@ -2,101 +2,201 @@
   {
     "id": "A1",
     "name": "Orca",
-    "asset": "assets/mascots/A1.webp"
+    "asset": "assets/mascots/A1.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "B1",
     "name": "Dolphin",
-    "asset": "assets/mascots/B1.webp"
+    "asset": "assets/mascots/B1.webp",
+    "fit": {
+      "scale": 0.99,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "D1",
     "name": "Beluga",
-    "asset": "assets/mascots/D1.webp"
+    "asset": "assets/mascots/D1.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "E1",
     "name": "Sea Otter",
-    "asset": "assets/mascots/E1.webp"
+    "asset": "assets/mascots/E1.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "F1",
     "name": "Manta Ray",
-    "asset": "assets/mascots/F1.webp"
+    "asset": "assets/mascots/F1.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.5,
+      "y": 0.5
+    }
   },
   {
     "id": "G1",
     "name": "Octopus",
-    "asset": "assets/mascots/G1.webp"
+    "asset": "assets/mascots/G1.webp",
+    "fit": {
+      "scale": 0.97,
+      "x": 0.5,
+      "y": 1.0
+    }
   },
   {
     "id": "H1",
     "name": "Humpback",
-    "asset": "assets/mascots/H1.webp"
+    "asset": "assets/mascots/H1.webp",
+    "fit": {
+      "scale": 0.93,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "H2",
     "name": "Seal",
-    "asset": "assets/mascots/H2.webp"
+    "asset": "assets/mascots/H2.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "I1",
     "name": "Sea Turtle",
-    "asset": "assets/mascots/I1.webp"
+    "asset": "assets/mascots/I1.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "J1",
     "name": "Crab",
-    "asset": "assets/mascots/J1.webp"
+    "asset": "assets/mascots/J1.webp",
+    "fit": {
+      "scale": 0.93,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "K2",
     "name": "Pufferfish",
-    "asset": "assets/mascots/K2.webp"
+    "asset": "assets/mascots/K2.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "L2",
     "name": "Seahorse",
-    "asset": "assets/mascots/L2.webp"
+    "asset": "assets/mascots/L2.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.5,
+      "y": 1.0
+    }
   },
   {
     "id": "M1",
     "name": "Jellyfish",
-    "asset": "assets/mascots/M1.webp"
+    "asset": "assets/mascots/M1.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.5,
+      "y": 1.0
+    }
   },
   {
     "id": "N1",
     "name": "Shark",
-    "asset": "assets/mascots/N1.webp"
+    "asset": "assets/mascots/N1.webp",
+    "fit": {
+      "scale": 0.98,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "O1",
     "name": "Clownfish",
-    "asset": "assets/mascots/O1.webp"
+    "asset": "assets/mascots/O1.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "P3",
     "name": "Walrus",
-    "asset": "assets/mascots/P3.webp"
+    "asset": "assets/mascots/P3.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "Q1",
     "name": "Hammerhead",
-    "asset": "assets/mascots/Q1.webp"
+    "asset": "assets/mascots/Q1.webp",
+    "fit": {
+      "scale": 0.97,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "R3",
     "name": "Narwhal",
-    "asset": "assets/mascots/R3.webp"
+    "asset": "assets/mascots/R3.webp",
+    "fit": {
+      "scale": 0.89,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "S2",
     "name": "Penguin",
-    "asset": "assets/mascots/S2.webp"
+    "asset": "assets/mascots/S2.webp",
+    "fit": {
+      "scale": 1.0,
+      "x": 0.0,
+      "y": 1.0
+    }
   },
   {
     "id": "T1",
     "name": "Sea Bunny",
-    "asset": "assets/mascots/T1.webp"
+    "asset": "assets/mascots/T1.webp",
+    "fit": {
+      "scale": 0.99,
+      "x": 0.0,
+      "y": 1.0
+    }
   }
 ]
