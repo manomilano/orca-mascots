@@ -46,7 +46,7 @@ orca plugin dev watch . --check --shot ./.orca/shots --json
 
 Run release inspection in a clean checkout. Orca includes local files in its size calculation, so ignored image-generation scratch files in a working checkout can exceed the 50 MiB inspection limit. The GitHub release includes the tracked masters and build script alongside the runtime assets.
 
-Review the dev-load access request as for installation. In a desktop workspace, use `orca plugin shot local.mascots --panel gallery --width 340 --out docs/gallery.png` for a fresh screenshot. Inspect the frame logs with `orca plugin logs local.mascots --json`. Stop the watch with Ctrl+C and unload a remaining dev registration with `orca plugin dev unload . --json`. The node tests exercise the shared catalog, preferences and SVG logic. Desktop QA should also exercise the save dialog and the bot’s PNG upload.
+Review the dev-load access request as for installation. In a desktop workspace, use `orca plugin shot local.mascots --panel gallery --width 420 --out docs/listing/panel.png` for a fresh panel capture, then rerun `scripts/build_listing.py`. Inspect the frame logs with `orca plugin logs local.mascots --json`. Stop the watch with Ctrl+C and unload a remaining dev registration with `orca plugin dev unload . --json`. The node tests exercise the shared catalog, preferences and SVG logic. Desktop QA should also exercise the save dialog and the bot’s PNG upload.
 
 ## Licences
 
