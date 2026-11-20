@@ -42,7 +42,7 @@ test('gradient uses its own SVG definition and transparent export omits the back
     const svg = composeSvg({ ...defaults, background }, 'Test', image);
     for (const part of ['linearGradient', 'url(#bg)', first, last]) assert.ok(svg.includes(part));
   }
-  const svg = composeSvg({ ...defaults, background: 'transparent', size: 1024, shape: 'circle' }, 'Test', image);
+  const svg = composeSvg({ ...defaults, background: 'transparent', size: 1024, shape: 'rounded' }, 'Test', image);
   assert.ok(svg.includes('width="1024" height="1024"'));
   assert.doesNotMatch(svg, /<rect|<circle|clipPath|checker/);
 });
