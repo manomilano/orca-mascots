@@ -2,7 +2,9 @@
 
 Design a marine avatar in the Orca Desktop sidebar. Choose from 20 illustrated animals, customise the background, and save a square PNG. Orca Mascots is an unofficial community plugin, unaffiliated with the Orca authors.
 
-![Orca Mascots sidebar in Orca Desktop](docs/gallery.png)
+![Twenty marine mascots as round avatars](docs/listing/cover.webp)
+
+![The Orca Mascots panel beside saved avatars](docs/listing/panel.webp)
 
 ## Install from GitHub
 
@@ -34,6 +36,7 @@ Python 3 and Pillow build WebP foregrounds and the listing icon from the tracked
 ```sh
 python -m pip install Pillow
 python scripts/build_assets.py
+python scripts/build_listing.py   # cover and screenshots for the plugin page
 orca plugin validate . --json
 orca plugin inspect . --json
 orca plugin test . --json

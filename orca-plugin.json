@@ -3,10 +3,32 @@
   "execution": "sandboxed-ui",
   "id": "mascots",
   "name": "Orca Mascots",
-  "version": "1.0.0",
-  "description": "Choose a marine mascot, design its background and export a profile picture.",
+  "version": "1.0.1",
+  "description": "Twenty glossy marine mascots for your Orca bots. Pick one, choose a background and shape, and save it as a bot picture.",
+  "author": {
+    "name": "manomilano",
+    "url": "https://github.com/manomilano"
+  },
   "repository": "https://github.com/manomilano/orca-mascots",
+  "license": "MIT AND CC-BY-4.0",
+  "homepage": "https://github.com/manomilano/orca-mascots#readme",
   "icon": "assets/icon.png",
+  "cover": {
+    "path": "docs/listing/cover.webp",
+    "alt": "Twenty glossy marine animal mascots shown as round avatars on pastel backgrounds."
+  },
+  "screenshots": [
+    {
+      "path": "docs/listing/panel.webp",
+      "alt": "The Orca Mascots sidebar panel beside avatars it saved: a square beluga, a round humpback and four smaller ones.",
+      "caption": "Pick a mascot, a background and a shape, then save a PNG."
+    },
+    {
+      "path": "docs/listing/mascots.webp",
+      "alt": "Fifteen of the mascots as square bot pictures on solid and gradient backgrounds.",
+      "caption": "Twenty mascots, ready to upload as bot pictures."
+    }
+  ],
   "engines": {
     "orca": ">=1.4.265"
   },
