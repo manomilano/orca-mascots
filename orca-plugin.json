@@ -1,0 +1,24 @@
+{
+  "manifestVersion": 2,
+  "execution": "sandboxed-ui",
+  "id": "mascots",
+  "name": "Orca Mascots",
+  "version": "1.0.0",
+  "description": "Choose a marine mascot, design its background and export a profile picture.",
+  "repository": "https://github.com/manomilano/orca-mascots",
+  "icon": "assets/icon.png",
+  "engines": {
+    "orca": ">=1.4.265"
+  },
+  "contributes": {
+    "panels": [
+      {
+        "id": "gallery",
+        "title": "Orca Mascots",
+        "ui": "html",
+        "icon": "bot",
+        "entry": "panel/index.html"
+      }
+    ]
+  }
+}

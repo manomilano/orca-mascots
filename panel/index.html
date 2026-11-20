@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orca Mascots</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./gallery.mjs"></script>
+</head>
+<body>
+  <main>
+    <header><h1>Orca Mascots</h1><span id="current-id"></span></header>
+    <section class="studio" aria-label="Avatar preview">
+      <div class="preview-wrap"><div id="mask" class="checker"><img id="preview" alt=""></div></div>
+      <div class="caption"><strong id="current-name"></strong>
+        <div class="segment" role="group" aria-label="Preview shape">
+          <button data-shape="rounded" title="Rounded preview" aria-label="Rounded preview">▢</button>
+          <button data-shape="circle" title="Circle preview" aria-label="Circle preview">○</button>
+        </div>
+      </div>
+    </section>
+    <section><h2>Mascot</h2><div id="gallery" aria-label="Mascots" role="group"></div></section>
+    <section>
+      <h2>Background <small id="background-name"></small></h2>
+      <div id="swatches" role="group" aria-label="Background presets"></div>
+      <div class="custom"><label for="picker">Custom</label>
+        <input id="picker" type="color" aria-label="Custom background colour">
+        <input id="hex" aria-label="Custom hex colour" aria-describedby="hex-error" maxlength="8" spellcheck="false" placeholder="#B3DBF4">
+      </div>
+      <p id="hex-error" role="status"></p>
+    </section>
+    <section>
+      <h2>Export <select id="size" aria-label="Export size"><option value="512">512 px</option><option value="1024">1024 px</option></select></h2>
+      <div class="actions"><button id="png" disabled>Save PNG</button><button id="svg" disabled>Save SVG</button></div>
+      <p class="hint">Both formats export the full square. The crop is a preview only.</p>
+    </section>
+    <p id="status" role="status"></p>
+    <details><summary>Use as your bot’s picture</summary>
+      <p>Save a 512 px PNG. Open your bot’s settings and upload it in the picture picker. Orca’s plugin API cannot apply an avatar directly.</p>
+    </details>
+  </main>
+</body>
+</html>
