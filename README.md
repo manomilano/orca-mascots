@@ -1,10 +1,10 @@
-# Orca Mascots
+# Bot Mascots
 
-Design a marine avatar in the Orca Desktop sidebar. Choose from 20 illustrated animals, customise the background, and save a square PNG. Orca Mascots is an unofficial community plugin, unaffiliated with the Orca authors.
+Design a marine avatar in the Orca Desktop sidebar. Choose from 20 illustrated animals, customise the background, and save a square PNG. Bot Mascots is an unofficial community plugin, unaffiliated with the Orca authors.
 
 ![Twenty marine mascots as round avatars](docs/listing/cover.webp)
 
-![The Orca Mascots panel beside saved avatars](docs/listing/panel.webp)
+![The Bot Mascots panel beside saved avatars](docs/listing/panel.webp)
 
 ## Install from GitHub
 
@@ -14,7 +14,7 @@ Requires Orca Desktop 1.4.265 or later with isolated plugin frames. Turn on plug
 orca plugin install manomilano/orca-mascots --json
 ```
 
-Orca shows the repository, publisher, and requested access before installing. Expect one sandboxed sidebar panel with an empty capability list. Review the details and run the command Orca returns with its exact `--approve` fingerprint. Open **Orca Mascots** in the right sidebar.
+Orca shows the repository, publisher, and requested access before installing. Expect one sandboxed sidebar panel with an empty capability list. Review the details and run the command Orca returns with its exact `--approve` fingerprint. Open **Bot Mascots** in the right sidebar.
 
 ## Design and export
 
@@ -46,7 +46,7 @@ orca plugin dev watch . --check --shot ./.orca/shots --json
 
 Run release inspection in a clean checkout. Orca includes local files in its size calculation, so ignored image-generation scratch files in a working checkout can exceed the 50 MiB inspection limit. The GitHub release includes the tracked masters and build script alongside the runtime assets.
 
-Review the dev-load access request as for installation. In a desktop workspace, use `orca plugin shot local.mascots --panel gallery --width 420 --out docs/listing/panel.png` for a fresh panel capture, then rerun `scripts/build_listing.py`. Inspect the frame logs with `orca plugin logs local.mascots --json`. Stop the watch with Ctrl+C and unload a remaining dev registration with `orca plugin dev unload . --json`. The node tests exercise the shared catalog, preferences and SVG logic. Desktop QA should also exercise the save dialog and the bot’s PNG upload.
+Review the dev-load access request as for installation. In a desktop workspace, use `orca plugin shot local.mascots --panel gallery --width 420 --out docs/listing/panel-a.png` for a fresh panel capture, then rerun `scripts/build_listing.py`. Inspect the frame logs with `orca plugin logs local.mascots --json`. Stop the watch with Ctrl+C and unload a remaining dev registration with `orca plugin dev unload . --json`. The node tests exercise the shared catalog, preferences and SVG logic. Desktop QA should also exercise the save dialog and the bot’s PNG upload.
 
 ## Licences
 

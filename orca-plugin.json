@@ -2,8 +2,8 @@
   "manifestVersion": 2,
   "execution": "sandboxed-ui",
   "id": "mascots",
-  "name": "Orca Mascots",
-  "version": "1.0.1",
+  "name": "Bot Mascots",
+  "version": "1.0.2",
   "description": "Twenty glossy marine mascots for your Orca bots. Pick one, choose a background and shape, and save it as a bot picture.",
   "author": {
     "name": "manomilano",
@@ -20,7 +20,7 @@
   "screenshots": [
     {
       "path": "docs/listing/sidebar.webp",
-      "alt": "The Orca Mascots sidebar panel in three states: a square beluga on sky blue, a round humpback on deep blue and a square octopus on a warm gradient.",
+      "alt": "The Bot Mascots sidebar panel in three states: a square beluga on sky blue, a round humpback on deep blue and a square octopus on a warm gradient.",
       "caption": "The sidebar panel: gallery, backgrounds, shape and Save PNG."
     },
     {
@@ -41,7 +41,7 @@
     "panels": [
       {
         "id": "gallery",
-        "title": "Orca Mascots",
+        "title": "Bot Mascots",
         "ui": "html",
         "icon": "bot",
         "entry": "panel/index.html"
